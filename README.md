@@ -1,59 +1,42 @@
-# AppContacts
+# Phonebook
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+## Prerequisites
 
-## Development server
+Before running the project, follow these steps:
 
-To start a local development server, run:
+### 1. Install Dependencies
 
-```bash
+In the terminal, at the root of the project, run the following command to install all the necessary dependencies:
+
+npm install
+
+### 2. Install & run json server
+
+Before running the Angular application, make sure that json-server is running. If you don't have json-server installed globally, use the following command to install it:
+
+npm install -g json-server
+
+### 3. Configuration
+
+After installing json-server, open the src/environments/environment.ts file and check that the api_url is configured to point to your json-server. It should look like this:
+
+export const environment = {
+production: false,
+api_url: 'http://localhost:3000/'
+};
+
+### 4. Run json-server
+
+Navigate to the src/app/services folder where the db.json file is located. From this location, run the following command to start json-server:
+
+json-server --watch src/app/services/db.json --port 3000
+
+This will start json-server on port 3000 and it will watch the db.json file for any changes.
+
+If you choose to run json-server on a different port, make sure to update the api_url in environment.ts to match the new port.
+
+### 5. Run Angular app
+
+Once json-server is running, you can finally start the Angular application. In a new terminal window, navigate to the root of the project and run the following command:
+
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
