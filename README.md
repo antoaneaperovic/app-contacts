@@ -8,7 +8,7 @@ Before running the project, follow these steps:
 
 In the terminal, at the root of the project, run the following command to install all the necessary dependencies:
 
-#npm install
+npm install
 
 ### 2. Install & run json server
 
